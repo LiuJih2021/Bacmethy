@@ -22,10 +22,10 @@ cat tmp.2.txt >>tmp.1.txt
 awk '{print $4"\t"$0}' $3_methylationGene.txt > gene.txt
 awk '{print $5"\t"$0}' $3_methylationGene.txt >> gene.txt
 awk 'NR==FNR{a[$1]=$0}NR>FNR{print $0"\t"a[$2]}' gene.txt tmp.1.txt  > tmp.txt
-echo "Strain	Methylation	TF binding start	TF binding end	FIMO score	Region	RRS	RRE	Methsite	Fraction	distance	start	end	strand	gene name	description"> "$3"_"$4"_binding_methylation.txt
+echo "Strain	Methylation	TF binding start	TF binding end	FIMO qvalue	Region	RRS	RRE	Methsite	Fraction	distance	start	end	strand	gene name	description"> "$3"_"$4"_binding_methylation.txt
 grep "$SAMPLE" tmp.txt > "$3"_TF.txt
 cat "$3"_TF.txt|awk -v FS="\t" -v OFS="\t" '{$4=$4+$2;$5=$5+$2;$1="";$2="";$3="";$7="";print $8,$9,$4,$5,$6,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21}' >> "$3"_"$4"_binding_methylation.tmp.txt
-sort -n "$3"_"$4"_binding_methylation.tmp.txt |uniq >"$3"_"$4"_binding_methylation.txt
+sort -n "$3"_"$4"_binding_methylation.tmp.txt |uniq >> "$3"_"$4"_binding_methylation.txt
 rm "$3"_"$4"_binding_methylation.tmp.txt
 #sed 's/\_.//' gene.list.txt| sort -n|uniq >gene.1.list.txt
 rm tmp.bed
