@@ -28,7 +28,7 @@ options
     "
 }
 
-while getopts ":hm:s:g:p:t:T:d:b:a:r:i:n:c:" opt
+while getopts ":hm:s:g:p:t:T:d:b:a:r:i:n:c:G" opt
 do
     case $opt in
         h)  usage
@@ -47,6 +47,7 @@ do
         i)  identification=$OPTARG ;;
         n)  npu=$OPTARG ;;
         c) coverage=$OPTARG ;;
+	G) Gene="true" ;;
         :)
         echo "Option -$OPTARG requires an argument."
 	    usage
@@ -166,17 +167,19 @@ do
         fimo $MEME/$memefile  ${sample}$METHYLATIONTYPE.fimo.fasta
         echo "integrated genes"
         $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.methylation $memefile $promoter $cds
-        rm -r fimo_out
+        cp -r fimo_out  ${sample}_${memefile}_methylation_fimo_out
+	rm -r fimo_out
     done
     fi
     mkdir -p ./methylation/"$motifgff"_RR
     mv "$motifgff".methylation* ./methylation/"$motifgff"_RR
 
     cp ./methylation/"$motifgff"_RR/"$motifgff".methylation ./
+    if [ -n  "$Gene" ]; then
     $dir/02_methylation.gene.sh  $motifgff.methylation  ${sample} $METHYLATIONTYPE $promoter $cds
     mkdir -p ./methylation/"$motifgff"_CDS
     mv "$motifgff".methylation* ./methylation/"$motifgff"_CDS
-
+    fi
 
     #############undermethylated#######################
     echo "running undermethylated genes"
@@ -197,18 +200,20 @@ do
 
         echo "integrated genes"
          $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.undermethylation $memefile $promoter $cds
-         rm -r fimo_out
+        cp -r fimo_out  ${sample}_${memefile}_undermethylation_fimo_out 
+	rm -r fimo_out
     done
     fi
     mkdir -p ./undermethylation/"$motifgff"undermethylation_RR
     mv "$motifgff".undermethylation* ./undermethylation/"$motifgff"undermethylation_RR
 
     cp ./undermethylation/"$motifgff"undermethylation_RR/"$motifgff".undermethylation ./
+    if [ -n  "$Gene" ]; then
     $dir/02_methylation.gene.sh  "$motifgff".undermethylation  ${sample} $METHYLATIONTYPE $promoter $cds
     
     mkdir -p ./undermethylation/"$motifgff"undermethylation_CDS
     mv "$motifgff".undermethylation* ./undermethylation/"$motifgff"undermethylation_CDS
-
+    fi
 
    
     #############unmethylated#######################
@@ -227,18 +232,21 @@ do
 
         echo "integrated genes"
         $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.unmethylation $memefile $promoter $cds
-         rm -r fimo_out
+        cp -r fimo_out  ${sample}_${memefile}_unmethylation_fimo_out
+	rm -r fimo_out
     done
     fi
     mkdir -p ./unmethylation/"$motifgff"unmethylation_RR
     mv "$motifgff".unmethylation* ./unmethylation/"$motifgff"unmethylation_RR
 
     cp ./unmethylation/"$motifgff"unmethylation_RR/"$motifgff".unmethylation ./
+    if [ -n  "$Gene" ]; then
     $dir/02_methylation.gene.sh  "$motifgff".unmethylation  ${sample} $METHYLATIONTYPE $promoter $cds
     
     
     mkdir -p ./unmethylation/"$motifgff"unmethylation_CDS
     mv "$motifgff".unmethylation* ./unmethylation/"$motifgff"unmethylation_CDS
+    fi
     read -u6
     {
         echo "$motifgff finished!"
