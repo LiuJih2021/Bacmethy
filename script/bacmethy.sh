@@ -167,7 +167,7 @@ do
         fimo $MEME/$memefile  ${sample}$METHYLATIONTYPE.fimo.fasta
         echo "integrated genes"
         $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.methylation $memefile $promoter $cds
-        cp -r fimo_out  ${sample}_${memefile}_methylation_fimo_out
+        #cp -r fimo_out  ${sample}_${memefile}_methylation_fimo_out
 	rm -r fimo_out
     done
     fi
@@ -200,7 +200,7 @@ do
 
         echo "integrated genes"
          $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.undermethylation $memefile $promoter $cds
-        cp -r fimo_out  ${sample}_${memefile}_undermethylation_fimo_out 
+        #cp -r fimo_out  ${sample}_${memefile}_undermethylation_fimo_out 
 	rm -r fimo_out
     done
     fi
@@ -232,7 +232,7 @@ do
 
         echo "integrated genes"
         $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.unmethylation $memefile $promoter $cds
-        cp -r fimo_out  ${sample}_${memefile}_unmethylation_fimo_out
+        #cp -r fimo_out  ${sample}_${memefile}_unmethylation_fimo_out
 	rm -r fimo_out
     done
     fi
