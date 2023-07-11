@@ -8,7 +8,7 @@ usage() {
     echo "
 Bacmethy V1.0.1 01/01/2022
 <liujihong2021@126.com>
-usage:  bacmethy.sh  -m <motifs.gff> -s <motifs.csv> -g <genome.fa> -p <prefix> -t <m6A, m4C or m5C>  [options] -T  -d -i -c -b -a -r 
+usage:  bacmethy.sh  -m <motifs.gff> -s <motifs.csv> -g <genome.fa> -p <prefix> -t <m6A, m4C or m5C>  [options] -T  -d -i -c -b -a -r -G
 requirement: locally installed PROKKA,  bedtools and MEME  softwares
 
 
@@ -25,6 +25,7 @@ options
     -b      INT     number of bps before TSS (default: 500)
     -a      INT     number of bps after TSS (default: 100)
     -r      FILE    FASTA or GBK file to use as 1st priority (default '')
+    -G      NULL    Scan the DNA methylation sites on gene Coding region (default only scan Regulation Region)
     "
 }
 
