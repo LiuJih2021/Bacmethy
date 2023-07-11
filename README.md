@@ -64,7 +64,7 @@ TFs binding predictiion as an optional function module of Bacmethy. The TF matri
 ### 4. Run Bacmethy.sh
     bash Bacmethy.sh -m motifs.gff -s motifs.csv -g genome.fasta -p PREFIX -t m6A 
 #### Usage
-    bash Bacmethy.sh -m <motifs.gff> -s <motifs.csv> -g <genome.fa> -p <prefix> -t <m6A, m4C or m5C> [options] -d -b -a -r -T -n
+    bash Bacmethy.sh -m <motifs.gff> -s <motifs.csv> -g <genome.fa> -p <prefix> -t <m6A, m4C or m5C> [options] -d -b -a -r -T -n -G
     requirement: locally installed PROKKA,  bedtools and MEME  softwares
 
 
@@ -84,6 +84,7 @@ TFs binding predictiion as an optional function module of Bacmethy. The TF matri
         -a      INT     number of bps after TSS (default: 100)
         -r      FILE    FASTA or GBK file to use as 1st priority (default '')
         -n      INT     Number of CPUs to use (default '8')
+        -G      NULL    Scan the DNA methylation sites on gene Coding region (default only scan Regulation Region)
 #### Notice
 The genome must be the same file which used methylation motif detection analysis.<br>
 #### option: **-r** add standard strains reference
@@ -103,16 +104,16 @@ Bacmethy uses parallel processing to decrease running time on multicore computer
 ### 7. Output
 structure of output files
 -   methylation
-    -   motif_CDS
+    -   motif_CDS(-G)
     -   motif_RR
 -   undermethylation
-    -   motif_CDS
+    -   motif_CDS(-G)
     -   motif_RR
 -   unmethylation
-    -   motif_CDS
+    -   motif_CDS(-G)
     -   motif_RR
 #### Gene Features
-There are 3 gene features, promoter(default: 500bp before TSS), CDS_RR(default: 100bp after TSS), Coding Region(Whole Gene coding region). And we defined both promoter and CDS as Regulation Region(RR) in Bacmethy. <br>
+There are 3 gene features, promoter(default: 500bp before TSS), CDS_RR(default: 100bp after TSS), Coding Region(Whole Gene coding region). And we defined both promoter and CDS_RR as Regulation Region(RR) in Bacmethy. <br>
 ##### difference between CDS_RR and Coding Region<br>
 Gene transcription initiation is a multi regulated process. So the start of whole gene body also may play a role in gene transcription initiation regulation, then the **CDS_RR** was used to descript that methylation sites happened at the start CDS region which regulated gene transcription. <br>
 Somes users may focus on the methylation sites happened at gene body. Bacmethy set a new folder only for these methylation sites and classified to the **Coding Region**. <br>
@@ -177,7 +178,7 @@ motif_methylationType.methylationLevel_TF.meme.txt
 | Methylation |                                                                                                                                                   Methylation type                                    |
 | TF binding start |  TF binding position start site |
 | TF binding end |  TF binding position end site |
-| FIMO score | the TF which binding with RR or CDS region in FIMO scan score |
+| FIMO qvalue | the TF which binding with RR or CDS region in FIMO scan score |
 | Region | the region which the methylation site located, CDS or promoter |
 | RRS | Regulation region start site |
 | RRE | Regulation region end site |
