@@ -95,7 +95,7 @@ awk '{print $2"\t"$1}' whole.bed > ipdr.mid.txt
 awk 'NR==FNR{a[$1]=$0}NR>FNR{print $0"\t"a[$2]}'  test.txt ipdr.mid.txt > methylationGene.txt
 grep "$SAMPLE" methylationGene.txt >methylationGene.1.txt
 
-echo "Fraction	 	 	Strain	Methylation	Region	RRS	RRE	Methsite	distance	start	end	strand	gene name	description"> "$1"_methylationGene.1.txt
+echo "Fraction	 	 	Strain	Methylation	Region	RRS	RRE	Methsite	distance	start	end	strand	Locud_tag    gene name	description"> "$1"_methylationGene.1.txt
 grep "$SAMPLE" methylationGene.txt >> "$1"_methylationGene.1.txt
 
 cat "$1"_methylationGene.1.txt|awk -v FS="\t" -v OFS="\t" '{print $4,$5,$6,$7,$8,$9,$1,$10,$11,$12,$13,$14,$15,$16}' > "$1"_methylationGene.txt
