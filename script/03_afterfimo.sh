@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Processing fimo.gff file
-#awk '{print $1,$4,$5,$7,$9,$10}' $1|awk -F':' '{print $2,$3}'|awk -F';' '{print $1,$4,$3}'|sed 's/\([0-9]\+\)-\([0-9]\+\)/\1\t\2/g' |awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$8"\t"$9}'|sed 's/pvalue=//g'  > fimo_processed.txt
-awk '{print $1,$4,$5,$7,$9,$10}' $1 |awk -F';' '{print $1,$4,$5}' |awk '{print $1,$2,$3,$4,$6,$7}' |awk -F':' '{print $2,$3}' | sed 's/pvalue=//g' |sed 's/qvalue=//g' |sed 's/\([0-9]\+\)-\([0-9]\+\)/\1\t\2/g'|awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7}'  > fimo_processed.txt
+#login fimo
+awk '{print $1,$4,$5,$7,$9,$10}' $1|awk -F':' '{print $2,$3}'|awk -F';' '{print $1,$4,$3}'|sed 's/\([0-9]\+\)-\([0-9]\+\)/\1\t\2/g' |awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$8"\t"$9}'|sed 's/pvalue=//g'  > fimo_processed.txt
+#webdep fimo
+#awk '{print $1,$4,$5,$7,$9,$10}' $1 |awk -F';' '{print $1,$4,$5}' |awk '{print $1,$2,$3,$4,$6,$7}' |awk -F':' '{print $2,$3}' | sed 's/pvalue=//g' |sed 's/qvalue=//g' |sed 's/\([0-9]\+\)-\([0-9]\+\)/\1\t\2/g'|awk '{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7}'  > fimo_processed.txt
+
 head fimo_processed.txt 
 # Header for the final output
 echo -e "Strain\tMethylation\tRegion\tRRS\tRRE\tMethsite\tFraction\tdistance\tstart\tend\tstrand\tlocustag\tgene name\tdescription\tTF binding start\tTF binding end\tTF binding strand\tFIMO qvalue\tFIMO pvalue" > final_output.txt
