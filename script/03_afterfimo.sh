@@ -11,7 +11,7 @@ head fimo_processed.txt
 echo -e "Strain\tMethylation\tRegion\tRRS\tRRE\tMethsite\tFraction\tdistance\tstart\tend\tstrand\tlocustag\tgene name\tdescription\tTF binding start\tTF binding end\tTF binding strand\tFIMO qvalue\tFIMO pvalue" > final_output.txt
 awk 'NR==FNR{fimo[$1]=$0; next} ($4 in fimo) || ($5 in fimo){print $0 "\t" fimo[$4] "\t" fimo[$5]}' fimo_processed.txt $2_methylationGene.txt  > final_output_temp.txt
 #awk 'NR==FNR{fimo[$1]=$0; next} ($4 in fimo) || ($5 in fimo){print $0 "\t" fimo[$4] "\t" fimo[$5]}' fimo_processed.txt $2_methylationGene.txt  > final_output_temp.txt
-
+awk 'NR==FNR{fimo[$2]=$0; next} ($4 in fimo) || ($5 in fimo){print $0  fimo[$4] "\t" fimo[$5]}' fimo_processed.txt $2_methylationGene.txt >> final_output_temp.txt
 head final_output_temp.txt
 awk  -F'\t' '{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10"\t"$11"\t"$12"\t"$13"\t"$14"\t"$15+$17"\t"$15+$18"\t"$19"\t"$20"\t"$21}' final_output_temp.txt >>final_output.txt
 
