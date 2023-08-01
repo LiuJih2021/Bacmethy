@@ -167,7 +167,7 @@ do
         echo "running FIMO scan"
         fimo $MEME/$memefile  ${sample}$METHYLATIONTYPE.fimo.fasta
         echo "integrated genes"
-        $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.methylation $memefile $promoter $cds
+        $dir/03_afterfimo.sh ./fimo_out/*.gff  $motifgff.methylation $memefile
         #cp -r fimo_out  ${sample}_${memefile}_methylation_fimo_out
 	rm -r fimo_out
     done
@@ -200,7 +200,7 @@ do
         fimo $MEME/$memefile  ${sample}$METHYLATIONTYPE.fimo.fasta
 
         echo "integrated genes"
-         $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.undermethylation $memefile $promoter $cds
+         $dir/03_afterfimo.sh ./fimo_out/*.gff  $motifgff.undermethylation $memefile 
         #cp -r fimo_out  ${sample}_${memefile}_undermethylation_fimo_out 
 	rm -r fimo_out
     done
@@ -232,7 +232,7 @@ do
         fimo $MEME/$memefile  ${sample}$METHYLATIONTYPE.fimo.fasta
 
         echo "integrated genes"
-        $dir/03_afterfimo.sh ./fimo_out/*.gff ${sample} $motifgff.unmethylation $memefile $promoter $cds
+        $dir/03_afterfimo.sh ./fimo_out/*.gff  $motifgff.unmethylation $memefile 
         #cp -r fimo_out  ${sample}_${memefile}_unmethylation_fimo_out
 	rm -r fimo_out
     done
