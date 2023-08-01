@@ -47,7 +47,7 @@ Docker image is provided for Windows or Mac users. <br>
 
 Inputs
 -----------------
-######## 
+
 ### 1. genome sequence file 
 PacBio provide HGAP4(Hierarchical Genome Assembly Process) as part of [SMRT-LINK](https://www.pacb.com/support/software-downloads/) to generate high quality de novo assemblies of genomes, using Continuous Long Reads.<br> 
 For step 2, "Prepare motifs files," it is essential to have **complete genome** sequences obtained from the **same strain** (same reference genome). This means that the genome sequences used for this step should be derived from the exact same bacterial strains. This ensures accuracy and consistency in the analysis of motifs. 
