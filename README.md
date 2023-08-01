@@ -187,9 +187,6 @@ motif_methylationType.methylationLevel_TF.meme.txt
 | --- | --- |
 | Strains | Strain name |
 | Methylation |                                                                                                                                                   Methylation type                                    |
-| TF binding start |  TF binding position start site |
-| TF binding end |  TF binding position end site |
-| FIMO score | the TF which binding with RR or CDS region in FIMO scan score |
 | Region | the region which the methylation site located, CDS or promoter |
 | RRS | Regulation region start site |
 | RRE | Regulation region end site |
@@ -202,6 +199,12 @@ motif_methylationType.methylationLevel_TF.meme.txt
 | locus tag | the gene position ID |
 | gene name | gene name annotated by prokka |
 | description | gene function annotation |
+| TF binding start |  TF binding position start site |
+| TF binding end |  TF binding position end site |
+| TF binding strand| TF binding strand |
+| FIMO qvlaue | TF binding prediction q value in FIMO |
+| FIMO pvalue | TF binding prediction p value in FIMO |
+
 
 #### whole modified base of this motif in this genome
 motif_methylationType_motif.methylationLevel<br>
