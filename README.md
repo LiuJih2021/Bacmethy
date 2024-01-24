@@ -32,7 +32,7 @@ Docker image is provided for Windows or Mac users. <br>
     docker attach <container_ID>
 
 ### 3. command-line tool users
-1. Download the scripts from Guthub to your working directory. <br>
+1. Download the scripts from Github to your working directory. <br>
 2. install required softwares through Conda. <br>
 #### First install conda 
     wget -c https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
