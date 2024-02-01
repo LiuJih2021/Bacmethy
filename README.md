@@ -6,15 +6,6 @@ Summary
 Bacmethy, a customizable pipeline based on Docker, is designed to calculate the enrichment significance of methylated and un(der)methylated motifs in the regulatory and coding regions of the genome. It also identifies genes that are co-affected by DNA methylation and transcription factor binding, enabling the prediction of transcriptional regulation effects by DNA methylation. By using Bacmethy, researchers can gain a more comprehensive understanding of bacterial epigenomes.<br>
 We offer three ways for utilizing Bacmethy: a web server, a Docker-based system, and a command-line tool. <br>
 
-Requirements
----------------
-
-1. [PROKKA](https://github.com/tseemann/prokka "PROKKA Github")<br> (Note: prokka v1.12 works fine. If you want to use a higher version of prokka, you may need to manually configure the environment such as: export LD_LIBRARY_PATH = your/path/to/conda/env/lib: $LD_LIBRARY_PATH)<br>
-2. [bedtools](https://bedtools.readthedocs.io/en/latest/ "bedtools Documentation")<br>
-3. [meme](https://github.com/cinquin/MEME "meme Github")<br>
-4. r-base <br> (Note: The R packages [ggplot2](https://github.com/tidyverse/ggplot2) and [ggthemes](https://github.com/jrnold/ggthemes) need to be configured)<br>
-5. [circos](https://github.com/vigsterkr/circos) [OPTION] <br>
-6. [seqkit](https://github.com/shenwei356/seqkit) [OPTION] <br>
 
 Installation
 ---------------
@@ -37,6 +28,13 @@ Docker image is provided for Windows or Mac users. <br>
 
 ### 3. command-line tool users
 1. install required softwares. <br>
+    a. [PROKKA](https://github.com/tseemann/prokka "PROKKA Github")<br> (Note: prokka v1.12 works fine. If you want to use a higher version of prokka, you may need to manually configure the environment such as: export LD_LIBRARY_PATH = your/path/to/conda/env/lib: $LD_LIBRARY_PATH)<br>
+    b. [bedtools](https://bedtools.readthedocs.io/en/latest/ "bedtools Documentation")<br>
+    c. [meme](https://github.com/cinquin/MEME "meme Github")<br>
+    d. r-base <br> (Note: The R packages [ggplot2](https://github.com/tidyverse/ggplot2) and [ggthemes](https://github.com/jrnold/ggthemes) need to be configured)<br>
+    e. [circos](https://github.com/vigsterkr/circos) [OPTION] <br>
+    f. [seqkit](https://github.com/shenwei356/seqkit) [OPTION] <br>
+
 #### Make sure you have conda installed
     wget -c https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh  
     bash Miniconda2-latest-Linux-x86_64.sh  
@@ -229,9 +227,7 @@ Using Circos_data_prepare.sh for generating circos configuration files and figur
 ### Usage (Run in the folder where the output files were generated)
     bash /PATH/TO/Circos_data_prepare.sh PREFIX /PATH/TO/SCRIPT/FOLDER/
 
-Coming updates
-----------------
-1. Incomplete genome assembly data<br>
 
 Copyright
 -------------------------
+Copyright © [2024] [Ji-Hong Liu]. All rights reserved.
