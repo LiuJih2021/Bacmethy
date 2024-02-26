@@ -1,0 +1,1 @@
+chr - chr1 chr1 0 6885256 set2-5-qual-3
