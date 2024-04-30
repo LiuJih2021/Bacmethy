@@ -5,7 +5,7 @@ Summary
 
 Bacmethy, a customizable pipeline based on Docker, is designed to calculate the enrichment significance of methylated and un(der)methylated motifs in the regulatory and coding regions of the genome. It also identifies genes that are co-affected by DNA methylation and transcription factor binding, enabling the prediction of transcriptional regulation effects by DNA methylation. By using Bacmethy, researchers can gain a more comprehensive understanding of bacterial epigenomes.<br>
 We offer three ways for utilizing Bacmethy: a web server, a Docker-based system, and a command-line tool. <br>
-
+Please cite our work by "Liu, Ji-Hong, Yizhou Zhang, Ning Zhou, Jiale He, Jing Xu, Zhao Cai, Liang Yang, and Yang Liu. 2024. “ Bacmethy: A Novel and Convenient Tool for Investigating Bacterial DNA Methylation Pattern and Their Transcriptional Regulation Effects.” iMeta e186. https://doi.org/10.1002/imt2.186."
 
 Installation
 ---------------
