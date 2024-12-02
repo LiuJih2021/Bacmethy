@@ -96,7 +96,7 @@ Run Bacmethy
         -t      STRING  a type of methylation type (required; one of m6A, m4C or m5C)
        
     options
-        -T      FOLDER  a floder contains TFs files in meme format (required; users can get from Calcute_PPM_console_final.py)
+        -T      FILE    a TF file in meme format (required; users can get from Calcute_PPM_console_final.py)
         -d      FLOAT   a undermethylation thresholds of fraction (default: 0.75)
         -i      FLOAT   a unmethylation thresholds of identificationQv (default: 40)
         -c      FLOAT   a unmethylation thresholds of coverage (default: 30)
@@ -120,7 +120,7 @@ The default threshold for undermethylation in Bacmethy is set to a fraction less
 However, users can also set user-defined thresholds using the -d parameter to change the fraction and the -i parameter to alter the identificationQV threshold.<br>
 
 ### 2. example
-    Bacmethy.sh -m motifs.gff -s motif_summary.csv -g genomic.fna -p K12 -t m6A -T /Your/Path/To/TF/meme
+    Bacmethy.sh -m motifs.gff -s motif_summary.csv -g genomic.fna -p K12 -t m6A -T /Your/Path/To/TF/TF.meme
 
 ### 3. Running Time
 Bacmethy uses parallel processing to decrease running time on multicore computers.  Users can set Running CPU by parameter **-n**. 
