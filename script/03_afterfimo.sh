@@ -35,8 +35,7 @@ NR==FNR {
   }
 }' fimo_processed.txt $2_methylationGene.txt > final_output_temp_2.txt
 
-awk  -F'\t' '{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10"\t"$11"\t"$12"\t"$13"\t"$14"\t"$15+$17"\t"$15+$18"\t"$19"\t"$20"\t"$21}' final_output_temp.txt >>final_output.txt
-
+awk  -F'\t' '{print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10"\t"$11"\t"$12"\t"$13"\t"$14"\t"$15+$17"\t"$15+$18"\t"$19"\t"$20"\t"$21}' final_output_temp*.txt >>final_output.txt
 awk -F'\t' '!($17 ~ /^[0-9]+$/)' final_output.txt >$2_${3}.txt
 # Clean up
 rm fimo_processed.txt final_output_temp*.txt final_output.txt
